@@ -1,5 +1,6 @@
 package day2;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MethodExercise {
@@ -8,12 +9,13 @@ public class MethodExercise {
     public static void main(String[] args) {
 //        testExponent();
 //        testMagicSum(sc);
-        testPrint();
+//        testPrint();
 //        testArrayToString();
 //        testContains();
 //        testSearch();
 //        testEquals();
 //        testCopyOf();
+        testCopyOf1();
 //        testSwap();
 //        testReverse();
     }
@@ -66,8 +68,8 @@ public class MethodExercise {
         for (int i = 0; i < arr.length - 1; i++) {
             str.append(arr[i]).append(",");
         }
-        if(arr.length > 0) {
-            str.append(arr[arr.length-1]);
+        if (arr.length > 0) {
+            str.append(arr[arr.length - 1]);
         }
         str.append("]");
         System.out.println(str);
@@ -78,8 +80,8 @@ public class MethodExercise {
         for (int i = 0; i < arr.length - 1; i++) {
             str.append(arr[i]).append(",");
         }
-        if(arr.length > 0) {
-            str.append(arr[arr.length-1]);
+        if (arr.length > 0) {
+            str.append(arr[arr.length - 1]);
         }
         str.append("]");
         System.out.println(str);
@@ -90,8 +92,8 @@ public class MethodExercise {
         for (int i = 0; i < arr.length - 1; i++) {
             str.append(arr[i]).append(",");
         }
-        if(arr.length > 0) {
-            str.append(arr[arr.length-1]);
+        if (arr.length > 0) {
+            str.append(arr[arr.length - 1]);
         }
         str.append("]");
         System.out.println(str);
@@ -183,43 +185,58 @@ public class MethodExercise {
         return result;
     }
 
-    static void testCopyOf() {
-        int[] arr = {1, 2, 3, 4, 5};
-        int[] arr1 = copyOf(arr);
-        arr1[0] = 0;
-        System.out.println(arr[0]);
-    }
-
-    static boolean swap(int[] array1,int[] array2) {
-        if (array1.length != array2.length) {
-            return false;
-        }
-        for (int i = 0; i < array1.length; i++) {
-            int temp = array1[i];
-            array1[i] = array2[i];
-            array2[i] = temp;
-        }
-        return true;
-    }
-
-    static void testSwap() {
-        int[] arr1 = {1, 2, 3, 4, 5};
-        int[] arr2 = {6, 7, 8, 9, 10};
-        swap(arr1, arr2);
-        print(arr1);
-        print(arr2);
-    }
-
-    static int[] reverse(int[] arr) {
-        int[] result = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            result[i] = arr[arr.length - 1 - i];
+    static int[] copyOf(int[] arr, int newLength) {
+        int[] result = new int[newLength];
+        for (int i = 0; i < newLength && i < arr.length; i++) {
+            result[i] = arr[i];
         }
         return result;
     }
 
-    static void testReverse() {
+    static void testCopyOf1() {
         int[] arr = {1, 2, 3, 4, 5};
-        print(reverse(arr));
+        int newLength = 10;
+        System.out.println(Arrays.toString(copyOf(arr, newLength)));
     }
-}
+
+
+        static void testCopyOf () {
+            int[] arr = {1, 2, 3, 4, 5};
+            int[] arr1 = copyOf(arr);
+            arr1[0] = 0;
+            System.out.println(arr[0]);
+        }
+
+        static boolean swap ( int[] array1, int[] array2){
+            if (array1.length != array2.length) {
+                return false;
+            }
+            for (int i = 0; i < array1.length; i++) {
+                int temp = array1[i];
+                array1[i] = array2[i];
+                array2[i] = temp;
+            }
+            return true;
+        }
+
+        static void testSwap () {
+            int[] arr1 = {1, 2, 3, 4, 5};
+            int[] arr2 = {6, 7, 8, 9, 10};
+            swap(arr1, arr2);
+            print(arr1);
+            print(arr2);
+        }
+
+        static int[] reverse ( int[] arr){
+            int[] result = new int[arr.length];
+            for (int i = 0; i < arr.length; i++) {
+                result[i] = arr[arr.length - 1 - i];
+            }
+            return result;
+        }
+
+        static void testReverse () {
+            int[] arr = {1, 2, 3, 4, 5};
+            print(reverse(arr));
+        }
+    }
