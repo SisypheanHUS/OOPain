@@ -1,19 +1,25 @@
 package day2;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class StringAndCharacterExercise {
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
         testReverseString();
         testCountVowelsDigits();
         testPhoneKeyPad();
+        testCipherCaesarCode();
+        testDecipherCaesarCode();
+        testCheckHexString();
+        testBinaryToDecimal();
+        testHexadecimalToDecimal();
+        testOctalToDecimal();
+        testRadixNToDecimal();
     }
 
     // 1. Write a Java method to reverse a string
     public static void testReverseString() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a string: ");
         String inStr = sc.nextLine();
         System.out.println("The reverse of the String \"" + inStr + " \" is \"" + reverseString(inStr) + "\"");
@@ -52,7 +58,6 @@ public class StringAndCharacterExercise {
     }
 
     public static void testCountVowelsDigits() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a string: ");
         String inStr = sc.nextLine().toLowerCase();
         System.out.println("The number of vowels in the String " + inStr + " is " + countVowels(inStr) + "(" + Math.round(countVowels(inStr) * 100.0 / inStr.length()) + "%)");
@@ -116,15 +121,163 @@ public class StringAndCharacterExercise {
     }
 
     static void testPhoneKeyPad() {
-        List<String> list = new ArrayList<String>();
-        list.add("A");
-        Scanner sc = new Scanner(System.in);
         System.out.println("Enter a string: ");
         String inStr = sc.nextLine().toLowerCase();
         System.out.println("The sequence of keypad digits for the input \"" + inStr + " \" is \"" + PhoneKeyPad(inStr) + "\"");
     }
 
+    static String cipherCaesarCode(String inStr) {
+        String result = "";
+        for (int i = 0; i < inStr.length(); i++) {
+            char inChar = inStr.charAt(i);
+            if (inChar >= 'A' && inChar <= 'W') {
+                result += (char) (inChar + 3);
+            } else if (inChar >= 'X' && inChar <= 'Z') {
+                result += (char) (inChar - 23);
+            }
+        }
+        return result;
+    }
+    static void testCipherCaesarCode(){
+        System.out.println("Enter a string:");
+        String inStr = sc.nextLine().toUpperCase();
+        System.out.println("The Caesar code of the input \"" + inStr + "\" is \"" + cipherCaesarCode(inStr) + "\"" );
+    }
 
+    static String decipherCaesarCode(String inStr){
+        String result = "";
+        for (int i = 0; i < inStr.length(); i++) {
+            char inChar = inStr.charAt(i);
+            if (inChar >= 'D' && inChar <= 'Z') {
+                result += (char) (inChar - 3);
+            } else if (inChar >= 'A' && inChar <= 'C') {
+                result += (char) (inChar + 23);
+            }
+        }
+        return result;
+    }
+
+    static void testDecipherCaesarCode(){
+            System.out.println("Enter a string:");
+            String inStr = sc.nextLine().toUpperCase();
+            System.out.println("The Caesar code of the input \"" + inStr + "\" is \"" + decipherCaesarCode(inStr) + "\"" );
+    }
+
+    static  boolean CheckHexString(String inStr){
+        for (int i = 0; i < inStr.length(); i++) {
+            char inChar = inStr.charAt(i);
+            if(!((inChar >= '0' && inChar <= '9') || (inChar >= 'A' && inChar <= 'F'))){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static void testCheckHexString(){
+        System.out.println("Enter a string:");
+        String inStr = sc.nextLine().toUpperCase();
+        System.out.println("The input \"" + inStr + "\" is " + (CheckHexString(inStr) ?  "a hex string" : "not a hex String "));
+    }
+
+    static int binaryToDecimal(String inStr){
+        int result = 0;
+        for (int i = 0; i < inStr.length(); i++) {
+            char inChar = inStr.charAt(i);
+            if(inChar == '1'){
+                result += Math.pow(2, inStr.length() - 1 - i); //1011 = 1*2^3 + 0*2^2 + 1*2^1 + 1*2^0
+            }
+            else if(inChar != '0'){
+                return -1;
+            }
+        }
+        return result;
+    }
+
+    static void testBinaryToDecimal(){
+        System.out.println("Enter a binary string:");
+        String inStr = sc.nextLine();
+        if(binaryToDecimal(inStr) == -1)
+            System.out.println("error: invalid binary string \"" + inStr + "\"");
+        else {
+            System.out.println("The decimal value of the input \"" + inStr + "\" is :" + binaryToDecimal(inStr));
+        }
+    }
+
+    static int HexadecimalToDecimal(String inStr){
+        int result = 0;
+        for (int i = 0; i < inStr.length(); i++) {
+            char inChar = inStr.charAt(i);
+            if(inChar >= '0' && inChar <= '9'){
+                result += (inChar - '0') * Math.pow(16, inStr.length() - 1 - i);
+            }
+            else if(inChar >= 'A' && inChar <= 'F'){
+                result += (inChar - 'A' + 10) * Math.pow(16, inStr.length() - 1 - i); //1a = 1*16^1 + 10*16^0
+            }
+            else{
+                return -1;
+            }
+        }
+        return result;
+    }
+
+    static void testHexadecimalToDecimal(){
+        System.out.println("Enter a hexadecimal string:");
+        String inStr = sc.nextLine().toUpperCase();
+        if(HexadecimalToDecimal(inStr) == -1)
+            System.out.println("error: invalid hexadecimal string \"" + inStr + "\"");
+        else {
+            System.out.println("The decimal value of the input \"" + inStr + "\" is :" + HexadecimalToDecimal(inStr));
+        }
+    }
+
+    static int octalToDecimal(String inStr){
+        int result = 0;
+        for (int i = 0; i < inStr.length(); i++) {
+            char inChar = inStr.charAt(i);
+            if(inChar >= '0' && inChar <= '7'){
+                result += (inChar - '0') * Math.pow(8, inStr.length() - 1 - i); //147 = 1*8^2 + 4*8^1 + 7*8^0
+            }
+            else{
+                return -1;
+            }
+        }
+        return result;
+    }
+
+    static void testOctalToDecimal(){
+        System.out.println("Enter an octal string:");
+        String inStr = sc.nextLine();
+        if(octalToDecimal(inStr) == -1)
+            System.out.println("error: invalid octal string \"" + inStr + "\"");
+        else {
+            System.out.println("The decimal value of the input \"" + inStr + "\" is :" + octalToDecimal(inStr));
+        }
+    }
+
+    static int radixNToDecimal(String octalStr,int radix){
+        int result = 0;
+        for (int i = 0; i < octalStr.length(); i++) {
+            char inChar = octalStr.charAt(i);
+            if(inChar >= '0' && inChar <= '9'){
+                result += (inChar - '0') * Math.pow(radix, octalStr.length() - 1 - i); //147 = 1*8^2 + 4*8^1 + 7*8^0
+            }
+            else if(inChar >= 'A' && inChar <= 'F'){
+                result += (inChar - 'A' + 10) * Math.pow(radix, octalStr.length() - 1 - i); //1a = 1*16^1 + 10*16^0
+            }
+            else{
+                return -1;
+            }
+        }
+        return  result;
+    }
+
+    static void testRadixNToDecimal(){
+        System.out.println("Enter the radix : ");
+        int radix = Integer.parseInt(sc.nextLine());
+        System.out.println("Enter the string : ");
+        String octalStr = sc.nextLine().toUpperCase();
+        System.out.println("The equivalent decimal number \"" +octalStr +"\" is : " +radixNToDecimal(octalStr,radix));
+    }
 
 
 }
