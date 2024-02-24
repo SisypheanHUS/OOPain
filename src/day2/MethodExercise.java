@@ -6,16 +6,16 @@ public class MethodExercise {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        testExponent();
-        testMagicSum(sc);
+//        testExponent();
+//        testMagicSum(sc);
         testPrint();
-        testArrayToString();
-        testContains();
-        testSearch();
-        testEquals();
-        testCopyOf();
-        testSwap();
-        testReverse();
+//        testArrayToString();
+//        testContains();
+//        testSearch();
+//        testEquals();
+//        testCopyOf();
+//        testSwap();
+//        testReverse();
     }
 
     static int exponent(int base, int exp) {
@@ -62,38 +62,50 @@ public class MethodExercise {
     }
 
     static void print(int[] arr) {
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
+        StringBuilder str = new StringBuilder("[");
+        for (int i = 0; i < arr.length - 1; i++) {
+            str.append(arr[i]).append(",");
         }
-        System.out.print("]\n");
+        if(arr.length > 0) {
+            str.append(arr[arr.length-1]);
+        }
+        str.append("]");
+        System.out.println(str);
     }
 
     static void print(float[] arr) {
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
+        StringBuilder str = new StringBuilder("[");
+        for (int i = 0; i < arr.length - 1; i++) {
+            str.append(arr[i]).append(",");
         }
-        System.out.print("]\n");
+        if(arr.length > 0) {
+            str.append(arr[arr.length-1]);
+        }
+        str.append("]");
+        System.out.println(str);
     }
 
     static void print(double[] arr) {
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + ",");
+        StringBuilder str = new StringBuilder("[");
+        for (int i = 0; i < arr.length - 1; i++) {
+            str.append(arr[i]).append(",");
         }
-        System.out.print("]\n");
+        if(arr.length > 0) {
+            str.append(arr[arr.length-1]);
+        }
+        str.append("]");
+        System.out.println(str);
     }
 
     static void testPrint() {
-        int[] arr3 = {};
         int[] arr = {1, 2, 3, 4, 5};
         float[] arr1 = {1.1f, 2.2f, 3.3f, 4.4f, 5.5f};
         double[] arr2 = {1.1, 2.2, 3.3, 4.4, 5.5};
+        int[] arr3 = {};
+        print(arr3);
         print(arr);
         print(arr1);
         print(arr2);
-        print(arr3);
     }
 
     static String arrayToString(int[] arr) {
