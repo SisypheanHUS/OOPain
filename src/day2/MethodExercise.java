@@ -7,17 +7,17 @@ public class MethodExercise {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-//        testExponent();
-//        testMagicSum(sc);
-//        testPrint();
-//        testArrayToString();
-//        testContains();
-//        testSearch();
-//        testEquals();
-//        testCopyOf();
+        testExponent();
+        testMagicSum(sc);
+        testPrint();
+        testArrayToString();
+        testContains();
+        testSearch();
+        testEquals();
+        testCopyOf();
         testCopyOf1();
-//        testSwap();
-//        testReverse();
+        testSwap();
+        testReverse();
     }
 
     static int exponent(int base, int exp) {
