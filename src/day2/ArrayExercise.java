@@ -45,6 +45,7 @@ public class ArrayExercise {
         return arr;
     }
 
+
     static void simpleGradeStatistics(int[] arr) {
         int average = 0;
         for (int i = 0; i < arr.length; i++) {

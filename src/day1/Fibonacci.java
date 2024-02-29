@@ -13,7 +13,7 @@ public class Fibonacci {
         Fibonnacci[0] = 1;
         Fibonnacci[1] = 1;
         double sum = 2.0;
-        System.out.priant("The first 20 Fibonacci number are :");
+        System.out.print("The first 20 Fibonacci number are :");
         for (int i = 2; i < number; i++) {
             Fibonnacci[i] = Fibonnacci[i - 1] + Fibonnacci[i - 2];
             System.out.print(+Fibonnacci[i] + " ");
