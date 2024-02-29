@@ -45,7 +45,7 @@ public class Matrix {
         return null;
     }
 
-    public static double[][] aad(double[][] matrix1, double[][] matrix2) {
+    public static double[][] add(double[][] matrix1, double[][] matrix2) {
         if (haveSameDimension(matrix1, matrix2)) {
             double[][] result = new double[matrix1.length][matrix1[0].length];
             for (int row = 0; row < matrix1.length; ++row) {
