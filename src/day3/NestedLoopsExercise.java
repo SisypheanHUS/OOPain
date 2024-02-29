@@ -31,6 +31,7 @@ public class NestedLoopsExercise {
             System.out.println();
         }
     }
+    // 2. Write a program to print the following pattern:
 
     static void CheckerPattern() {
         System.out.print("Enter the size : ");
@@ -74,6 +75,7 @@ public class NestedLoopsExercise {
         }
     }
 
+    // 4. Write a program to print the following pattern:
     static void TriangularPattern() {
         System.out.print("Enter the size : ");
         int size = sc.nextInt();
@@ -103,6 +105,7 @@ public class NestedLoopsExercise {
             System.out.println();
         }
     }
+    // 5. Write a program to print the following pattern:
 
     static void BoxPattern() {
         System.out.print("Enter the size : ");
@@ -135,6 +138,7 @@ public class NestedLoopsExercise {
         }
     }
 
+    // 6. Write a program to print the following pattern:
     static void hillPattern() {
         System.out.print("Enter the size : ");
         int size = sc.nextInt();
