@@ -6,7 +6,7 @@ public class DecisionAndLoopsHomework {
     static Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
-        guessNumber();
+//        guessNumber();
         guessWord();
     }
     // 1. Write a program to guess the number. The program shall generate a random number and ask the user to guess it. If the user guess is higher than the random number, the program shall display "Too high", if the user guess is lower than the random number, the program shall display "Too low", and if the user guess is equal to the random number, the program shall display "You got it in x trials" where x is the number of trials the user used to guess the number.
@@ -44,7 +44,7 @@ public class DecisionAndLoopsHomework {
         boolean[] guessedPositions = new boolean[word.length()];
         int trials = 0;
         while (true) {
-            System.out.println("Key in one character of your guess word: ");
+            System.out.print("Key in one character of your guess word: ");
             String trialWord = (sc.hasNext()) ? sc.next() : "";
             trials++;
 
