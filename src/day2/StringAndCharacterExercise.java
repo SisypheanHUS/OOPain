@@ -184,14 +184,18 @@ public class StringAndCharacterExercise {
         for (int i = 0; i < inStr.length(); i++) {
             char inChar = inStr.charAt(i);
             if(inChar == '1'){
-                result += Math.pow(2, inStr.length() - 1 - i); //1011 = 1*2^3 + 0*2^2 + 1*2^1 + 1*2^0
+                result = result * 2 + 1;
             }
-            else if(inChar != '0'){
+            else if(inChar == '0'){
+                result = result * 2;
+            }
+            else {
                 return -1;
             }
         }
         return result;
     }
+
 
     static void testBinaryToDecimal(){
         System.out.println("Enter a binary string:");
