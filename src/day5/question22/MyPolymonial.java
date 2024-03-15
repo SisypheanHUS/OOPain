@@ -8,42 +8,63 @@ public class MyPolymonial {
     }
 
     public int getDegree() {
+        //fix later
         return coeffs.length - 1;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder myPoly = new StringBuilder();
         for (int i = coeffs.length - 1; i >= 0; i--) {
-            if (i == 0) {
-                sb.append(coeffs[i]);
+            if (i == this.getDegree()) {
+                if (coeffs[i] == 0) {
+                    continue;
+                }
+                myPoly.append(coeffs[i] + "x^" + i);
+            } else if (i == 1) {
+                if (coeffs[i] == 0) {
+                    continue;
+                }
+                myPoly.append("+" + coeffs[i] + "x");
+            } else if (i == 0) {
+                if (coeffs[i] == 0) {
+                    continue;
+                }
+                myPoly.append("+" + coeffs[i]);
             } else {
-                sb.append(coeffs[i] + "x^" + i + " + ");
+                if (coeffs[i] == 0) continue;
+                myPoly.append("+" + coeffs[i] + "x^" + i);
             }
         }
-        return sb.toString();
+        return myPoly.toString();
     }
-
     public double evaluate(double x) {
-        double result = 0;
+        double result = 0.0;
+        double powerOfX = 1.0;
         for (int i = 0; i < coeffs.length; i++) {
-            result += coeffs[i] * Math.pow(x, i);
+            result += coeffs[i] * powerOfX;
+            powerOfX *= x;
         }
         return result;
     }
 
     public MyPolymonial add(MyPolymonial right) {
+        int minDegree = Math.min(this.getDegree(),right.getDegree());
         int maxDegree = Math.max(this.getDegree(), right.getDegree());
         double[] result = new double[maxDegree + 1];
         for (int i = 0; i < result.length; i++) {
-            if (i <= this.getDegree()) {
-                result[i] += this.coeffs[i];
-            }
-            if (i <= right.getDegree()) {
-                result[i] += right.coeffs[i];
+            if (i <= minDegree) {
+                result[i] = this.coeffs[i] + right.coeffs[i];
+            } else {
+                if(maxDegree == right.getDegree()){
+                    result[i] = right.coeffs[i];
+                } else {
+                    result[i] = this.coeffs[i];
+                }
             }
         }
-        return new MyPolymonial(result);
+        this.coeffs = result;
+        return this;
     }
 
     public MyPolymonial multiply(MyPolymonial right) {
@@ -53,6 +74,7 @@ public class MyPolymonial {
                 result[i + j] += this.coeffs[i] * right.coeffs[j];
             }
         }
-        return new MyPolymonial(result);
+        this.coeffs = result;
+        return this;
     }
 }
