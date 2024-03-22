@@ -1,4 +1,4 @@
-package day5.question22;
+package day6;
 
 public class MyPolymonial {
     private double[] coeffs;
