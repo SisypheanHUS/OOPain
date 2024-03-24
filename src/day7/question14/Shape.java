@@ -1,4 +1,4 @@
-package day7.Shape;
+package day7.question14;
 
 public class Shape {
     String color;
@@ -31,7 +31,7 @@ public class Shape {
     public void setFilled(boolean filled) {
         this.filled = filled;
     }
-
+@Override
     public String toString() {
         return "Shape[color=" + this.color + ",filled=" + this.filled + "]";
     }

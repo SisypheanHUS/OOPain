@@ -1,6 +1,8 @@
-package day7;
+package day7.question13;
 
-public class Point3D extends Point2D{
+import day7.question13.Point2D;
+
+public class Point3D extends Point2D {
     private float z = 0.0f;
 
     public Point3D(){
@@ -27,7 +29,7 @@ public class Point3D extends Point2D{
     public float[] getXYZ(){
         return new float[]{super.getX(), super.getY(), this.z};
     }
-
+@Override
     public String toString(){
         return "(" + super.getX() + "," + super.getY() + "," + this.z + ")";
     }

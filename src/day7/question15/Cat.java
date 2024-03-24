@@ -1,13 +1,15 @@
-package day7;
+package day7.question15;
 
 public class Cat extends Mammal {
     public Cat(String name) {
         super(name);
     }
 
+    @Override
     public void greets() {
         System.out.println("Meow");
     }
+    @Override
     public String toString() {
         return "Cat["+super.toString()+"]]]";
     }

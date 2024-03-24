@@ -1,6 +1,8 @@
-package day7;
+package day7.question12;
 
-public class Student extends Person{
+import day7.question12.Person;
+
+public class Student extends Person {
     String program;
     int year;
     double fee;
@@ -29,6 +31,7 @@ public class Student extends Person{
     public void setFee(double fee){
         this.fee = fee;
     }
+    @Override
     public String toString(){
         return "Student[" + super.toString() + ",program=" + this.program + ",year=" + this.year + ",fee=" + this.fee + "]";
     }

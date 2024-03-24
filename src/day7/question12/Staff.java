@@ -1,6 +1,8 @@
-package day7;
+package day7.question12;
 
-public class Staff extends Person{
+import day7.question12.Person;
+
+public class Staff extends Person {
     String school;
     double pay;
     public Staff(String name, String address, String school, double pay){
@@ -21,6 +23,7 @@ public class Staff extends Person{
     public void setPay(double pay){
         this.pay = pay;
     }
+    @Override
     public String toString(){
         return "Staff[" + super.toString() + ",school=" + this.school + ",pay=" + this.pay + "]";
     }

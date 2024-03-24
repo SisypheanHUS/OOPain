@@ -1,4 +1,4 @@
-package day7;
+package day7.question15;
 
 public class Dog {
     private String name;
@@ -8,9 +8,11 @@ public class Dog {
     public void greets() {
         System.out.println("Woof");
     }
+    @Override
     public void greets(Dog another) {
         System.out.println("Wooooof");
     }
+    @Override
     public String toString() {
         return "Dog["+super.toString()+"]]]";
     }

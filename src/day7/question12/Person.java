@@ -1,4 +1,4 @@
-package day7;
+package day7.question12;
 
 public class Person {
     String name;
@@ -16,6 +16,7 @@ public class Person {
     public void setAddress(String address){
         this.address = address;
     }
+    @Override
     public String toString(){
         return "Person[name=" + this.name + ",address=" + this.address + "]";
     }

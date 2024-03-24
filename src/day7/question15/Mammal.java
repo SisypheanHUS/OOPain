@@ -1,6 +1,8 @@
-package day7;
+package day7.question15;
 
-public class Mammal extends Animal{
+import day7.question15.Animal;
+
+public class Mammal extends Animal {
     public Mammal(String name){
         super(name);
     }

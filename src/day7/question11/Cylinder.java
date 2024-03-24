@@ -1,4 +1,6 @@
-package day7;
+package day7.question11;
+
+import day7.question11.Circle;
 
 public class Cylinder extends Circle {
     double height;
@@ -32,5 +34,9 @@ public class Cylinder extends Circle {
     }
     public double getVolume(){
         return super.getArea() * this.height;
+    }
+    @Override
+    public String toString(){
+        return "Cylinder[" + super.toString() + ",height=" + this.height + "]";
     }
 }

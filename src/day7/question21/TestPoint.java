@@ -1,4 +1,4 @@
-package day8;
+package day7.question21;
 
 public class TestPoint {
     public static void main(String[] args) {

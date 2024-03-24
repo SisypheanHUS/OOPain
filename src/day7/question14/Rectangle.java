@@ -1,4 +1,4 @@
-package day7.Shape;
+package day7.question14;
 
 public class Rectangle extends Shape{
     double width;
@@ -41,6 +41,7 @@ public class Rectangle extends Shape{
     public double getPerimeter(){
         return 2 * (this.width + this.length);
     }
+    @Override
     public String toString(){
         return "Rectangle[" + super.toString() + ",width=" + this.width + ",length=" + this.length + "]";
     }

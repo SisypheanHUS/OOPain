@@ -1,4 +1,4 @@
-package day7;
+package day7.question13;
 
 public class Point2D {
     private float x = 0.0f;

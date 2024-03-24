@@ -1,4 +1,4 @@
-package day7.Shape;
+package day7.question14;
 
 public class Square extends Rectangle{
     public Square(){
@@ -25,6 +25,7 @@ public class Square extends Rectangle{
         this.width = side;
         this.length = side;
     }
+    @Override
     public String toString(){
         return "Square[" + super.toString() + "]";
     }

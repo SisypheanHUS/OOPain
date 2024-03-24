@@ -1,4 +1,4 @@
-package day8;
+package day7.question21;
 
 public class Point {
     private int x;

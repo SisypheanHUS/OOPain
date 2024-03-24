@@ -1,4 +1,4 @@
-package day7;
+package day7.question15;
 
 public class Animal {
     private String name;
