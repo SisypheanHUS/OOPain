@@ -8,7 +8,6 @@ public class Dog {
     public void greets() {
         System.out.println("Woof");
     }
-    @Override
     public void greets(Dog another) {
         System.out.println("Wooooof");
     }

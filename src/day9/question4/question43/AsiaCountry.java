@@ -5,11 +5,7 @@ public class AsiaCountry extends Country {
     private double area;
     private double gdp;
 
-    public AsiaCountry(String code,
-                       String name,
-                       int population,
-                       double area,
-                       double gdp) {
+    public AsiaCountry(String code, String name, int population, double area, double gdp) {
         super(code, name);
         this.population = population;
         this.area = area;
